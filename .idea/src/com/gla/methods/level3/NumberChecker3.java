@@ -1,0 +1,41 @@
+package com.gla.methods.level3;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+
+public class NumberChecker3 {
+    public static int[] getDigits(int n) {
+        String s = String.valueOf(Math.abs(n));
+        int[] digits = new int[s.length()];
+        for (int i = 0; i < s.length(); i++)
+            digits[i] = s.charAt(i) - '0';
+        return digits;
+    }
+
+    public static int[] reverse(int[] arr) {
+        int[] rev = new int[arr.length];
+        for (int i = 0; i < arr.length; i++)
+            rev[i] = arr[arr.length - 1 - i];
+        return rev;
+    }
+
+    public static boolean isPalindrome(int[] digits) {
+        return Arrays.equals(digits, reverse(digits));
+    }
+
+    public static boolean isDuck(int[] digits) {
+        for (int d : digits)
+            if (d == 0) return true;
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int[] digits = getDigits(n);
+        System.out.println("Palindrome: " + isPalindrome(digits));
+        System.out.println("Duck Number: " + isDuck(digits));
+    }
+}
