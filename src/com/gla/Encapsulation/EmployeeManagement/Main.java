@@ -1,0 +1,17 @@
+package com.gla.Encapsulation.EmployeeManagement;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Employee> employees = new ArrayList<>();
+
+        employees.add(new FullTimeEmployee(1, "Alice", 50000));
+        employees.add(new PartTimeEmployee(2, "Bob", 80, 200));
+
+        for (Employee e : employees) {
+            e.displayDetails();
+            System.out.println("----------------");
+        }
+    }
+}
